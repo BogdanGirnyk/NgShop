@@ -1,0 +1,8 @@
+<div class="brd">
+<p>Name: <b>{{name}}</b> </p>
+<p>Description: <b>{{description}}</b> </p>
+<p>Price: <b>{{price | currency}}</b> </p>
+<p>Category: <b>{{category}}</b> </p>
+<p>Is available: <b>{{isAvailable}}</b> </p>
+<p>Tags: <b *ngFor= 'let tag of tags' >{{tag}}, </b> </p>
+</div>
