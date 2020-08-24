@@ -1,0 +1,20 @@
+<div class="cartContainer">
+  <div *ngIf="getProductsInTheCart().length>0;else empty">
+    <h3>Cart:</h3>
+    <ol>
+      <li *ngFor='let productInTheCart of getProductsInTheCart()'>
+        <app-cart-item
+          [productInCart]="productInTheCart"
+          (increaseQuantity)="increaseQuantity(productInTheCart.product)"
+          (decreaseQuantity)="decreaseQuantity(productInTheCart.product)"
+          (removeFromCart)="removeFromCart(productInTheCart.product)">
+        </app-cart-item>
+      </li>
+    </ol>
+    <p>Total count: <b>{{totalCount()}}</b></p>
+    <p>Total sum: <b>{{totalSum()}}</b></p>
+  </div>
+  <ng-template #empty>
+    <p>Cart is empty</p>
+  </ng-template>
+</div>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../models/product.model';
-import { Category } from '../models/category.enum';
+import { Product } from 'src/app/shared/models/product.model';
+import { Category } from 'src/app/shared/models/category.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +44,13 @@ export class ProductsService {
         price: 15,
         category: Category.Drinks,
         isAvailable: true
+      },
+      {
+        name: 'apple',
+        description: 'red, seducing',
+        price: 7,
+        category: Category.Fruits,
+        isAvailable: false
       }
     ];
   }

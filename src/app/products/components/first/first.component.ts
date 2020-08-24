@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from '../../models/category.enum';
+import { Category } from 'src/app/shared/models/category.enum';
 
 @Component({
   selector: 'app-first',
@@ -13,7 +13,7 @@ export class FirstComponent implements OnInit {
   price = 10;
   category: Category = Category.Drinks;
   isAvailable = true;
-  tags: string[] = ['new', 'star', 'elite']
+  tags: string[] = ['new', 'star', 'elite'];
 
   constructor() { }
 
