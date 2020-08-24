@@ -1,4 +1,4 @@
-## [1.0.0] - 2020-08-24
+## 2020-08-24
 ### Implemented Task1
 ### Added
 * components:
@@ -9,3 +9,17 @@
 * services:
   * ProductsService
   * CartService
+## 2020-08-24
+### Implemented Task2
+### Added
+* application is splitted on modules
+  * AppModule,
+  * CartModule,
+  * ProductsModule,
+  * OrdersModule,
+  * SharedModule
+* components:
+  * СartItemComponent
+* directives
+ * HighlightDirective
+* and other changes
