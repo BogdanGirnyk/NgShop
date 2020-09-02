@@ -16,7 +16,7 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule,
     CartModule
   ],
-  providers: [ProductsService],
+  // providers: [ProductsService], // уже зарегистрирован через свой декоратор
   exports: [ProductListComponent]
 })
 export class ProductsModule { }

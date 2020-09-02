@@ -11,7 +11,7 @@ import { CartItemComponent } from './components/cart-item/cart-item.component';
     CommonModule,
     SharedModule
   ],
-  providers: [CartService],
+  // providers: [CartService], // уже зарегистрирован через свой декоратор
   exports: [CartListComponent]
 })
 export class CartModule { }
