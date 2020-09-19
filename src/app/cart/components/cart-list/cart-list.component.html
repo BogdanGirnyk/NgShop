@@ -1,8 +1,8 @@
 <div class="cartContainer">
-  <div *ngIf="getProductsInTheCart().length>0;else empty">
+  <div *ngIf="(productsInTheCart | async)?.length>0;else empty">
     <h3>Cart:</h3>
     <ol>
-      <li *ngFor='let productInTheCart of getProductsInTheCart()'>
+      <li *ngFor='let productInTheCart of productsInTheCart | async'>
         <app-cart-item
           [productInCart]="productInTheCart"
           (increaseQuantity)="increaseQuantity(productInTheCart.product)"

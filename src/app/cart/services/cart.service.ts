@@ -11,8 +11,8 @@ export class CartService {
   private totalQuantity: number;
   private totalSum: number;
 
-  getProductsInTheCart(): ProductInCart[] {
-    return this.cartProducts;
+  getProductsInTheCart(): Promise<ProductInCart[]> {
+    return Promise.resolve(this.cartProducts);
   }
 
   getTotalQuantity(): number {

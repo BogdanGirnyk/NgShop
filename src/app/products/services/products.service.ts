@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from 'src/app/shared/models/product.model';
 import { Category } from 'src/app/shared/models/category.enum';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +9,8 @@ import { Category } from 'src/app/shared/models/category.enum';
 export class ProductsService {
   private products: Product[] = this.getInitialProducts();
 
-  getProducts(): Product[] {
-    return this.products;
+  getProducts(): Observable<Product[]> {
+    return of(this.products);
   }
 
   setAvailable(product: Product) {
@@ -47,8 +48,8 @@ export class ProductsService {
       },
       {
         name: 'apple',
-        description: 'red, seducing',
-        price: 7,
+        description: 'elite, red, seducing',
+        price: 47,
         category: Category.Fruits,
         isAvailable: false
       }

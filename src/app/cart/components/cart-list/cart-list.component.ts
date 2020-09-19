@@ -10,14 +10,11 @@ import { ProductInCart } from '../../models/product-in-cart';
 })
 export class CartListComponent implements OnInit {
 
-
+  productsInTheCart: Promise<ProductInCart[]>;
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
-  }
-
-  getProductsInTheCart(): ProductInCart[] {
-    return this.cartService.getProductsInTheCart();
+    this.productsInTheCart = this.cartService.getProductsInTheCart();
   }
 
   removeFromCart(productToRemove: Product) {
