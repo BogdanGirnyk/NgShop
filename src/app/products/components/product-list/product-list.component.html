@@ -1,5 +1,13 @@
 <div>
-    <app-product *ngFor='let product of getProducts()' [product]="product" (addToCart)="onBuy(product)"></app-product>
+  <div class="flex">
+  <p>Order by:</p>
+  <select [(ngModel)]="sortBy">
+    <option>name</option>
+    <option>price</option>
+  </select>
 </div>
-
-
+  <div class="flex">
+  <app-product *ngFor='let product of products | async | orderBy : sortBy : false' [product]="product" (addToCart)="onBuy(product)">
+  </app-product>
+</div>
+</div>

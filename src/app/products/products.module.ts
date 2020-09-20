@@ -6,13 +6,13 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductsService } from './services/products.service';
 import { CartModule } from '../cart/cart.module';
 import { SharedModule } from '../shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [FirstComponent, ProductComponent, ProductListComponent],
   imports: [
-    CommonModule,
     SharedModule,
     CartModule
   ],
