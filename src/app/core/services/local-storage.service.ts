@@ -4,6 +4,7 @@ export class LocalStorageService {
     return localStorage.getItem(key);
   }
 
+  // если значение придет не как строка, то его надо к строке преобразовать
   setItem(key: string, newValue: string) {
     localStorage.setItem(key, newValue);
   }
