@@ -26,6 +26,7 @@ export class ProductsService {
   getInitialProducts(): Product[] {
     return [
       {
+        id: 1,
         name: 'water',
         description: 'cold and pure',
         price: 10,
@@ -33,6 +34,7 @@ export class ProductsService {
         isAvailable: true
       },
       {
+        id: 2,
         name: 'ice cream',
         description: 'sweet',
         price: 20,
@@ -40,6 +42,7 @@ export class ProductsService {
         isAvailable: true
       },
       {
+        id: 3,
         name: 'cola',
         description: 'refreshing',
         price: 15,
@@ -47,6 +50,7 @@ export class ProductsService {
         isAvailable: true
       },
       {
+        id: 4,
         name: 'apple',
         description: 'elite, red, seducing',
         price: 47,

@@ -7,11 +7,12 @@ import { ProductsService } from './services/products.service';
 import { CartModule } from '../cart/cart.module';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { ProductCardComponent } from './components/product-card/product-card.component';
 
 
 
 @NgModule({
-  declarations: [FirstComponent, ProductComponent, ProductListComponent],
+  declarations: [FirstComponent, ProductComponent, ProductListComponent, ProductCardComponent],
   imports: [
     SharedModule,
     CartModule

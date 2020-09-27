@@ -1,4 +1,16 @@
 <h1 #appTitle></h1>
-<app-cart-list></app-cart-list>
+<nav>
+  <a routerLink="/products">Products</a> |
+  <a routerLink="/cart">Cart</a> |
+  <a routerLink="/order">Order</a> |
+  <div class="topnav-right">
+    <a routerLink="admin/orders">All orders |</a>
+    <a class="login-link" *ngIf="!usersService.isAuthorized" role="button" (click)="onAuthorize()">Sign in</a>
+    <a class="login-link" *ngIf="usersService.isAuthorized" role="button" (click)="onLogOut()">Log out</a>
+  </div>
+</nav>
+<hr>
+<router-outlet></router-outlet>
+<!-- <app-cart-list></app-cart-list>
 <app-product-list>
-</app-product-list>
+</app-product-list> -->
