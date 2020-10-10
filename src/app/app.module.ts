@@ -7,11 +7,18 @@ import { CartModule } from './cart/cart.module';
 import { AboutComponent } from './layout/components/about/about.component';
 import { constantValue, SOMECONSTANT } from './core';
 import { SharedModule } from './shared/shared.module';
+import { ApplicationRoutingModule } from './application-routing.module';
+import { OrderComponent } from './orders/components/order/order.component';
+import { OrdersAdminViewComponent } from './admin/components/orders-admin-view/orders-admin-view.component';
+import { NotFoundComponent } from './layout/components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AboutComponent
+    AboutComponent,
+    OrderComponent,
+    OrdersAdminViewComponent,
+    NotFoundComponent
   ],
   providers: [
     {
@@ -23,7 +30,8 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     ProductsModule,
     SharedModule,
-    CartModule
+    CartModule,
+    ApplicationRoutingModule
   ],
   bootstrap: [AppComponent]
 })

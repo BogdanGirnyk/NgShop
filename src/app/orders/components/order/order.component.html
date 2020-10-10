@@ -1,0 +1,19 @@
+<div class="orderContainer">
+  <div *ngIf="(productsInOrder | async)?.length>0;else empty">
+    <h3>Order:</h3>
+    <ol>
+      <table>
+      <th>Item</th><th>Price</th><th>Qty</th><th>Sum</th>
+      <tr *ngFor='let productInTheOrder of productsInOrder | async'>
+        <td>{{productInTheOrder.product.name}}</td> <td>{{productInTheOrder.product.price}}</td>
+        <td>{{productInTheOrder.quantity}}</td> <td>{{productInTheOrder.quantity * productInTheOrder.product.price}}</td>
+      </tr>
+      </table>
+    </ol>
+    <p>Total sum: <b>{{getTotalSum()}}</b></p>
+    <button *ngIf="!submitted" (click)="onSubmitOrder()">Submit order</button>
+  </div>
+  <ng-template #empty>
+    <p>Order is empty</p>
+  </ng-template>
+</div>

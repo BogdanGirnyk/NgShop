@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
+import { LocalStorageService } from 'src/app/core';
 import { Product } from 'src/app/shared/models/product.model';
 import { ProductInCart } from '../models/product-in-cart';
+
+const localStorageKey = 'cart';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +13,13 @@ export class CartService {
   private cartProducts: ProductInCart[] = [];
   private totalQuantity: number;
   private totalSum: number;
+
+  constructor(private localStorageService: LocalStorageService) {
+    const itemsInStorage = this.getFromLocalStorage();
+    if (itemsInStorage) {
+      this.cartProducts = itemsInStorage;
+    }
+  }
 
   getProductsInTheCart(): Promise<ProductInCart[]> {
     return Promise.resolve(this.cartProducts);
@@ -24,9 +34,10 @@ export class CartService {
   }
 
   updateCartData() {
-    this.totalQuantity = this.cartProducts.reduce(
+    this.totalSum = this.cartProducts.reduce(
       (accumulator, currentValue) => accumulator + currentValue.quantity * currentValue.product.price, 0);
-    this.totalSum = this.cartProducts.reduce((accumulator, currentValue) => accumulator + currentValue.quantity, 0);
+    this.totalQuantity = this.cartProducts.reduce((accumulator, currentValue) => accumulator + currentValue.quantity, 0);
+    this.saveToLocalStorage(this.cartProducts);
   }
 
   addToCart(productToAdd: Product) {
@@ -70,6 +81,14 @@ export class CartService {
 
   isInCart(product: Product): boolean {
     return !!this.cartProducts.find(p => p.product === product);
+  }
+
+  saveToLocalStorage(items: ProductInCart[]) {
+    this.localStorageService.setItem(localStorageKey, JSON.stringify(items))
+  }
+
+  getFromLocalStorage(): ProductInCart[] {
+    return JSON.parse(this.localStorageService.getItem(localStorageKey));
   }
 
 }
