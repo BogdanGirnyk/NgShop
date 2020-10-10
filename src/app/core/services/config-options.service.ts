@@ -6,7 +6,7 @@ import { ConfigOptions } from '..';
 })
 export class ConfigOptionsService {
 
-  private configOptions: ConfigOptions;
+  private configOptions: ConfigOptions ;
 
   getOptions(): ConfigOptions {
     return this.configOptions;

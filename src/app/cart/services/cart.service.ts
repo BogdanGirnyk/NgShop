@@ -44,21 +44,22 @@ export class CartService {
     let existing = this.cartProducts.find(p => p.product === productToAdd);
     if (!existing) {
       existing = { product: productToAdd, quantity: 0};
-      this.cartProducts.push(existing);
+      this.cartProducts.push(existing); // стратегия мутирования
     }
     existing.quantity++;
     this.updateCartData();
   }
 
   removeAllProducts() {
-    this.cartProducts = [];
+    this.cartProducts = []; // стратегия НЕ мутирования
     this.updateCartData();
   }
 
   removeFromCart(productToRemove: Product) {
     const item = this.cartProducts.find(p => p.product === productToRemove);
     if (item) {
-      this.cartProducts.splice(this.cartProducts.indexOf(item), 1);
+      this.cartProducts.splice(this.cartProducts.indexOf(item), 1); // стратегия мутирования
+      // лучше придерживаться одной стратегии
     }
     this.updateCartData();
   }
